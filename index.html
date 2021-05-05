@@ -48,10 +48,16 @@
             this.brickPadding = 10;
             this.status =1;
             this.specialRedblock
-            if(Math.floor(Math.random() * 4) === 1){
+            this.specialGreenblock
+            var randomNum = Math.floor(Math.random() * 4)
+            if( randomNum === 1){
                 this.specialRedblock = true
-            }else{
+            }else if (randomNum === 2){
+                this.specialGreenblock = true
+            }
+            else{
                 this.specialRedblock = false
+                this.specialGreenblock = false
             }
         }
         draw(){//วาดกำแพง
@@ -60,6 +66,12 @@
                 document.getElementById("myCanvas").getContext("2d").beginPath();
                 document.getElementById("myCanvas").getContext("2d").rect(this.x, this.y, this.width, this.height);
                 document.getElementById("myCanvas").getContext("2d").fillStyle = "red";
+                document.getElementById("myCanvas").getContext("2d").fill();
+                document.getElementById("myCanvas").getContext("2d").closePath();
+            }else if(this.specialGreenblock == true){
+                document.getElementById("myCanvas").getContext("2d").beginPath();
+                document.getElementById("myCanvas").getContext("2d").rect(this.x, this.y, this.width, this.height);
+                document.getElementById("myCanvas").getContext("2d").fillStyle = "green";
                 document.getElementById("myCanvas").getContext("2d").fill();
                 document.getElementById("myCanvas").getContext("2d").closePath();
             }
