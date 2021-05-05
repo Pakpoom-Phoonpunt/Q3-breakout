@@ -156,7 +156,7 @@
         constructor(r,c){
             this.canvas = document.getElementById("myCanvas");
             this.ctx = this.canvas.getContext("2d");
-            this.ball = [new Ball(this.canvas.width/2,this.canvas.height/2),new Ball(Math.floor(Math.random() * this.canvas.width)+1, Math.floor(Math.random() * this.canvas.height)+1)];//สร้างลูกบอล
+            this.ball = [new Ball(this.canvas.width/2,this.canvas.height/2)];//สร้างลูกบอล
             this.paddle = new Paddle();//สร้าง Paddle
             this.brick = [];
             this.row = r;
@@ -251,6 +251,10 @@
                                 if (this.brickBlock.specialGreenblock === true){
                                     this.paddle.upPaddleSize();
                                 }
+                                if (this.brickBlock.specialBlackblock === true){
+                                    this.addNewball();
+                                    this.addNewball();
+                                }
                                 this.ball[i].speedY = -this.ball[i].speedY;
                                 this.brickBlock.status = 0;//กำแพงหายไป
                                 this.score ++;//คะแนนเพิ่ม
@@ -265,6 +269,10 @@
                     }
                 }
             }
+        }
+        addNewball(){
+            var tempBall = new Ball(Math.floor(Math.random() * this.canvas.width)+1, Math.floor(Math.random() * this.canvas.height)+1);
+            this.ball[this.ball.length] = tempBall
         }
     }
 var w = new World(3,5);//สร้างโลก
