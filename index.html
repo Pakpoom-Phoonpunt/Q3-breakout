@@ -115,7 +115,7 @@
             this.paddleWidth -= 5
         }
         upPaddleSize(){
-            this.paddleWidth += 5
+            this.paddleWidth += 10
         }
     }
     class InputProcessor{
@@ -231,6 +231,9 @@
                             //ถ้ากำแพงถูกชน
                             if (this.brickBlock.specialRedblock === true){
                                 this.paddle.downPaddleSize();
+                            }
+                            if (this.brickBlock.specialGreenblock === true){
+                                this.paddle.upPaddleSize();
                             }
                             this.ball.speedY = -this.ball.speedY;
                             this.brickBlock.status = 0;//กำแพงหายไป
