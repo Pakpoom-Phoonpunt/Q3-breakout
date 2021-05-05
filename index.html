@@ -217,6 +217,9 @@
                     if(this.brickBlock.status == 1) {//ถ้ากำแพงยังไม่ถูกทำลาย
                         if(this.ball.x > this.brickBlock.x && this.ball.x < this.brickBlock.x+this.brickBlock.width && this.ball.y > this.brickBlock.y && this.ball.y < this.brickBlock.y+this.brickBlock.height) {
                             //ถ้ากำแพงถูกชน
+                            if (this.brickBlock.specialRedblock === true){
+                                this.paddle.downPaddleSize();
+                            }
                             this.ball.speedY = -this.ball.speedY;
                             this.brickBlock.status = 0;//กำแพงหายไป
                             this.score ++;//คะแนนเพิ่ม
