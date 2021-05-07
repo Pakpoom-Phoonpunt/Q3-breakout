@@ -252,8 +252,11 @@
                                     this.paddle.upPaddleSize();
                                 }
                                 if (this.brickBlock.specialBlackblock === true){
-                                    this.addNewball();
-                                    this.addNewball();
+                                    if (this.ball.length != 3){
+                                        this.addNewball();
+                                        this.addNewball();
+                                    }
+                                    
                                 }
                                 this.ball[i].speedY = -this.ball[i].speedY;
                                 this.brickBlock.status = 0;//กำแพงหายไป
@@ -271,7 +274,7 @@
             }
         }
         addNewball(){
-            var tempBall = new Ball(Math.floor(Math.random() * this.canvas.width)+1, Math.floor(Math.random() * this.canvas.height)+1);
+            var tempBall = new Ball(Math.floor(Math.random() * this.canvas.width)+1 , Math.floor(Math.random() * this.canvas.height)+1);
             this.ball[this.ball.length] = tempBall
         }
     }
